@@ -1,0 +1,12 @@
+{
+  "files": {
+    "main.css": "/todoAssignment/static/css/main.31d6cfe0.css",
+    "main.js": "/todoAssignment/static/js/main.ba4fc5c8.js",
+    "index.html": "/todoAssignment/index.html",
+    "main.ba4fc5c8.js.map": "/todoAssignment/static/js/main.ba4fc5c8.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.31d6cfe0.css",
+    "static/js/main.ba4fc5c8.js"
+  ]
+}
