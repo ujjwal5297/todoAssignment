@@ -18,7 +18,7 @@ export default function UserDetails({
       sx={{
         width: 500,
         height: 267,
-        backgroundColor: "primary.light",
+        backgroundColor: "white",
         ml: "50px",
         padding: "10px",
       }}

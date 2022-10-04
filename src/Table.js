@@ -7,7 +7,6 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import { listItemSecondaryActionClasses } from "@mui/material";
 import Button from "@mui/material/Button";
 
 export default function DenseTable({
@@ -38,7 +37,7 @@ export default function DenseTable({
         <TableBody>
           {todoList?.map((item, index) => (
             <TableRow
-              key={item.name}
+              key={index}
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
             >
               <TableCell component="th" scope="row">
@@ -46,7 +45,7 @@ export default function DenseTable({
               </TableCell>
               <TableCell align="center">{item.title}</TableCell>
               <TableCell align="center">
-                {item.completed == true ? "Complete" : "Incomplete"}
+                {item.completed === true ? "Complete" : "Incomplete"}
               </TableCell>
               <TableCell
                 onClick={() => onClickItem(item, index)}

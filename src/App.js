@@ -19,6 +19,14 @@ const App = () => {
   const selectedUserId = todoList?.[selectedIndex]?.userId;
   const selectedTitle = todoList?.[selectedIndex]?.title;
 
+  const [searchInput, setSearchInput] = React.useState("");
+  // console.log("searchInput: ", searchInput);
+
+  const handleChange = (e) => {
+    e.preventDefault();
+    setSearchInput(e.target.value);
+  };
+
   useEffect(() => {
     setIsLoading(true);
     const fetchData = async () => {
@@ -31,8 +39,20 @@ const App = () => {
         setIsLoading(false);
       }
     };
-    fetchData();
-  }, []);
+    const found = todoList.find(function (item, index) {
+      if (
+        item.title == searchInput ||
+        item.id == searchInput ||
+        item.userId == searchInput
+      )
+        return true;
+    });
+    if (found) {
+      setTodoList([found]);
+    } else {
+      fetchData();
+    }
+  }, [searchInput]);
 
   useEffect(() => {
     const fetchuserdetails = async () => {
@@ -55,7 +75,11 @@ const App = () => {
     <Provider store={RootStore}>
       <Box style={{}}>
         <Box style={{ float: "left", width: "50%" }}>
-          <Navbar />
+          <Navbar
+            searchInput={searchInput}
+            setSearchInput={setSearchInput}
+            handleChange={handleChange}
+          />
           {todoList?.length == 0 && (
             <>
               <CircularProgress style={{ alignSelf: "center" }} />

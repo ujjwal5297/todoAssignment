@@ -1,14 +1,18 @@
-import React from 'react'
+import React from "react";
 
-import { Stack } from '@mui/system';
-import SearchBar from './SearchBar';
+import { Stack } from "@mui/system";
+import SearchBar from "./SearchBar";
 
-const Navbar = () => {
+const Navbar = ({ searchInput, setSearchInput, handleChange }) => {
   return (
     <Stack>
-        <SearchBar/>
+      <SearchBar
+        searchInput={searchInput}
+        setSearchInput={setSearchInput}
+        handleChange={handleChange}
+      />
     </Stack>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;
